@@ -30,7 +30,8 @@ def main():
     for qq in dd['QUESTIONS']:
       one_question = dict()
       one_question['question'] = qq['QTEXT']
-      one_ans = dict([
+      one_question['id'] = qq['QID']
+      one_ans = dict([ ('id', qq['QID']),
                        ('text', answers[qq['QID']]),
                        ('answer_start', 0)])
       try:
