@@ -19,15 +19,18 @@ def main():
       doc_id = doc_js['DID']
       if doc_id not in out_docs:
         out_docs[doc_id] = OrderedDict()
-      out_docs[doc_id]['context'] = doc_js['DTEXT']
-      q_list = []
-      out_docs[doc_id]['qas'] = q_list
+      this_doc = out_docs[doc_id]
+      if 'context' not in this_doc:
+        this_doc['context'] = doc_js['DTEXT']
+      if 'qas' not in this_doc:
+        this_doc['qas'] = []
+      q_list = this_doc['qas']
 
-      for qq in doc_js['QUESTIONS']:
+      for q_a_pair in doc_js['QUESTIONS']:
         one_question = dict()
-        one_question['question'] = qq['QTEXT']
-        one_question['id'] = qq['QID']
-        one_ans = qq['ANSWER']
+        one_question['question'] = q_a_pair['QTEXT']
+        one_question['id'] = q_a_pair['QID']
+        one_ans = q_a_pair['ANSWER']
         if ';' in one_ans:
           one_ans = one_ans.split(';')
           one_ans = one_ans[0]
@@ -36,7 +39,7 @@ def main():
         except:
           find_ans_pos = -1
 
-        ans_dict = dict([('id', qq['QID']),
+        ans_dict = dict([('id', q_a_pair['QID']),
                          ('text', one_ans),
                          ('answer_start', find_ans_pos)])
 
