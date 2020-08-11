@@ -10,3 +10,4 @@
 3. Preprocess dataset
    * Run `python FGC_merge_to_DRCD_json.py` to merge FGC training data into DRCD
    * Run `python FGC_mocks_to_DRCD_json.py` to create development set data using FGC mock tests
+4. Run [run_fgc_baseline.ipynb](run_fgc_baseline.ipynb) (can be run in Google Colab)
