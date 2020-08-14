@@ -14,4 +14,4 @@
 4. Run [run_fgc_baseline.ipynb](run_fgc_baseline.ipynb) (can be run in Google Colab)
    * On a single Titan X GPU with 12G of memory, we can use the hyperparameters listed in here
    * Multi-GPU support is in **beta**
-5. Test set performance: correctly answer 20 out of 50 questions
+5. Test set performance: correctly answer 15 out of 50 questions
